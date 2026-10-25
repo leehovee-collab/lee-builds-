@@ -34,7 +34,7 @@ Put the file in the right folder and use the same path in `content.js`. For exam
 
 - **Lead tracker:** blur Instagram handles, real people's or business names, profile links, place names that identify a business, and named programmes or communities. Keep the approach rating, niche, score, follower count, country and general description.
 - **Rosalynn:** blur money amounts (risk, reward, profit, balance, account numbers). Keep prices, pips, lot sizes and pattern details.
-- **JobWatch:** blur the client's name or initials anywhere, including avatars and reactions.
+- **JobWatch:** blur the name or initials of the person it's for anywhere, including avatars and reactions.
 - **Cynthia's orders:** crop off map previews; blur customer names, addresses, postcodes and phone numbers.
 - **Everywhere:** crop off the phone status bar, keyboard and chat lists; blur emails, phone numbers and anything else personal.
 

@@ -53,7 +53,12 @@
   $('t-bottom').textContent=S.titleBottom;
   $('t-tagline').textContent=S.tagline;
   $('t-hint').textContent=S.hint;
-  $('footer').textContent=S.footer;
+  $('footer').innerHTML='<p>'+esc(S.footer)+'</p>'
+    +(S.email||S.phone?'<p class="contact">'
+      +(S.email?'<span>'+esc(S.emailLabel)+' <a href="mailto:'+esc(S.email)+'">'+esc(S.email)+'</a></span>':'')
+      +(S.phone?'<span>'+esc(S.phoneLabel)+' <a href="tel:'+esc(S.phoneLink||S.phone)+'">'+esc(S.phone)+'</a></span>':'')
+      +'</p>':'');
+  $('dclose').textContent=L.back;
 
   $('me1').innerHTML=pic(A.photo1,A.photo1Alt,{w:800,h:1000});
   $('me2').innerHTML=pic(A.photo2,A.photo2Alt,{w:800,h:1000});

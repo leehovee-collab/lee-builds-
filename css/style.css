@@ -175,7 +175,11 @@ h1,h2,h3,h4,p,ul,figure{margin:0}
 .row b{display:block;font-family:var(--f-serif);font-style:italic;font-weight:900;font-size:22px;line-height:1.1;letter-spacing:-.01em;color:var(--paper)}
 .row small{display:block;margin-top:4px;color:var(--on-wine-soft);font-size:10.5px;letter-spacing:.16em}
 .row .go{margin-left:auto;flex:none;font-family:var(--f-hand);font-weight:600;font-size:22px;color:var(--pink)}
-footer{padding-block:24px calc(env(safe-area-inset-bottom,0px) + 40px);text-align:center;color:#A9908F}
+footer{padding-block:24px calc(env(safe-area-inset-bottom,0px) + 40px);padding-inline:var(--gutter);text-align:center;color:#A9908F}
+footer .contact{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;margin-top:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+footer .contact a{display:inline-block;padding:10px 2px;margin-left:6px;color:var(--cream);text-transform:none;letter-spacing:.04em;font-size:15px;text-decoration:none;border-bottom:1px solid rgba(217,164,65,.5)}
+footer .contact a:hover{color:var(--gold);border-color:var(--gold)}
+footer .contact a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
 
 /* ---------- 7. A build page ---------- */
 #detail{position:fixed;inset:0;z-index:100;overflow-y:auto;overscroll-behavior:contain;background:var(--wine);-webkit-overflow-scrolling:touch}

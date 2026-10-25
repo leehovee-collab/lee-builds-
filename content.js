@@ -25,41 +25,49 @@ window.CONTENT = {
     description: "A scrapbook of the tools, bots and brands Lee has built with Claude.",
     titleTop:    "Lee's",
     titleBottom: "Builds",
-    tagline:     "tools, bots & brands",
-    hint:        "drag to spin · tap a build",
-    footer:      "Lee's Builds · Bracknell, Berkshire · 2026"
+    tagline:     "Tools, bots & brands",
+    hint:        "Drag to spin · Tap a build",
+    footer:      "Lee's Builds · Bracknell, Berkshire · 2026",
+
+    // Contact details in the footer. "phoneLink" is the number phones dial
+    // when it's tapped (UK numbers start +44 and drop the first 0).
+    emailLabel:  "Email",
+    email:       "leehovee@gmail.com",
+    phoneLabel:  "Phone",
+    phone:       "07864700066",
+    phoneLink:   "+447864700066"
   },
 
   /* ---------- ABOUT ME ---------- */
   about: {
     photo1:   "images/hero/me-1.jpg",
     photo1Alt: "Lee smiling on a red quad bike in the desert",
-    caption1: "that's me",
+    caption1: "That's me",
 
     photo2:   "images/hero/me-2.jpg",
     photo2Alt: "Lee smiling at a dinner table with cocktails",
-    caption2: "also me",
+    caption2: "Also me",
 
-    // The speech bubble (please keep this exactly as it is)
-    heading: "hi, i'm *lee*",
+    // The speech bubble
+    heading: "Hi, I'm *Lee*",
     paragraphs: [
-      "Over the last four months I've got properly hooked on building a whole array of things with Claude.",
-      "These are some of the things I've built so far. Enjoy."
+      "Recently I've developed a passion for building programs with Claude. I enjoy building for myself and for others and, God willing, that will continue.",
+      "These are some of the things I've built so far. If you like what you see, or you're just interested, my contact details are at the bottom."
     ],
-    ps: "p.s. tap the polaroids up top",
+    ps: "P.S. Tap the polaroids up top.",
 
     madeWith: ["Python", "Claude", "Railway", "GitHub", "Telegram", "three.js"],
 
-    currentlyTitle: "currently building",
+    currentlyTitle: "Currently building",
     currently: [
       "A virtual classroom for a Year 3 class",
-      "More JobWatch builds for new clients"
+      "More JobWatch builds for new people"
     ]
   },
 
   /* ---------- THE "ALL BUILDS" LIST ---------- */
-  allBuildsTitle: "all builds",
-  openLabel: "open",
+  allBuildsTitle: "All builds",
+  openLabel: "Open",
 
   /* ---------- EACH BUILD ----------
      They appear in this order everywhere: the spinning ring,
@@ -73,24 +81,24 @@ window.CONTENT = {
       id: "jobwatch",
       colour: "#F2C94C",
       name: "JobWatch",                       // full name (list, labels)
-      shortName: "job watch",                  // handwritten caption on the polaroid
-      listLine: "Client project · Jul 2026",   // small line in the list
-      kicker: "client project · jul 2026",     // small label above the title
-      title: "job *watch*",
-      tags: ["Complete", "Telegram alerts", "5 clients"],
-      lede: "An automated job alert system that finds relevant roles, checks each one against the client's CV and sends only the strong matches to her phone.",
+      shortName: "JobWatch",                   // handwritten caption on the polaroid
+      listLine: "Project · Jul 2026",   // small line in the list
+      kicker: "Project · Jul 2026",     // small label above the title
+      title: "Job*Watch*",
+      tags: ["Complete", "Telegram alerts", "5 people"],
+      lede: "An automated job alert system that finds relevant roles, checks each one against her CV and sends only the strong matches to her phone.",
       cover: {
         image: "images/jobwatch/thumb.jpg",
         alt: "A JobWatch job match alert in Telegram",
-        caption: "a real alert"
+        caption: "JobWatch alert"
       },
-      whatIBuiltTitle: "what I built",
+      whatIBuiltTitle: "What I built",
       features: [
         {
           image: "images/jobwatch/alert.jpg",
           alt: "Full JobWatch alert showing match score, job details, reasons and apply link",
-          caption: "a new job match",
-          heading: "the *alerts*",
+          caption: "A new job match",
+          heading: "The *alerts*",
           text: "Listings come in from Adzuna, Jooble, FashionUnited and Guardian Jobs, and an AI model scores every one against her CV before it reaches her phone.",
           bullets: [
             "A match score with a progress bar, so she can see at a glance how well a job fits.",
@@ -102,7 +110,7 @@ window.CONTENT = {
         }
       ],
       brief: "A fashion business student wanted entry-level PR and creative marketing roles, without losing hours to job boards and missing the good ones.",
-      outcome: "**She landed an internship through it** and the system was switched off. I've since rebuilt it for four more clients in sales, construction and hospitality.",
+      outcome: "**She landed an internship through it** and the system was switched off. I've since rebuilt it for four more people in sales, construction and hospitality.",
       madeWith: ["Python", "AI scoring", "Adzuna", "Jooble", "Telegram", "Railway"]
     },
 
@@ -111,52 +119,52 @@ window.CONTENT = {
       id: "rosalynn",
       colour: "#6FA8DC",
       name: "Rosalynn",
-      shortName: "rosalynn",
-      listLine: "Own system · Jul 2026",
-      kicker: "own system · jul 2026",
-      title: "rosa*lynn*",
+      shortName: "Rosalynn",
+      listLine: "Project · Jul 2026",
+      kicker: "Project · Jul 2026",
+      title: "Rosa*lynn*",
       tags: ["Testing phase", "EURUSD", "Runs 24/7"],
       lede: "A rules-based trading bot that spots chart patterns, places and manages its own trades in MetaTrader 5, and messages me at every step.",
       cover: {
         image: "images/rosalynn/thumb.jpg",
         alt: "Rosalynn alerts for a trade going live and a partial profit",
-        caption: "straight from Telegram"
+        caption: "Rosalynn alert"
       },
-      whatIBuiltTitle: "what I built",
+      whatIBuiltTitle: "What I built",
       features: [
         {
           image: "images/rosalynn/detected.jpg",
           alt: "Rosalynn pattern alert with trend bias, levels, pending order and invalidation rules",
-          caption: "pattern spotted",
-          heading: "spots the *pattern*",
+          caption: "Pattern spotted",
+          heading: "Spots the *pattern*",
           text: "Rosalynn scans EURUSD for M tops and W bottoms and checks them against the bigger trend. When one appears it works out the whole trade: the pattern levels, entry, stop loss, a 1:2 take profit, the position size and the rules that would cancel it."
         },
         {
           image: "images/rosalynn/partial.jpg",
           alt: "Alerts showing the trade triggered and half the profit taken",
-          caption: "trade goes live",
-          heading: "manages the *trade*",
+          caption: "Trade goes live",
+          heading: "Manages the *trade*",
           text: "It places the order itself, tells me the moment it goes live, takes half the profit at the first target and moves the stop on the rest to breakeven so the trade can't turn into a loss."
         },
         {
           image: "images/rosalynn/choppy.jpg",
           alt: "Alerts for a second partial in choppy conditions and a trailing stop move",
-          caption: "trailing the stop",
-          heading: "reads the *market*",
+          caption: "Trailing the stop",
+          heading: "Reads the *market*",
           text: "After the first partial it keeps watching. If price starts going sideways it measures how choppy things are, takes a second partial, then keeps trailing the stop behind price."
         },
         {
           image: "images/rosalynn/cancel.jpg",
           alt: "Alert cancelling a pending order because price broke above the M top peak",
-          caption: "setup cancelled",
-          heading: "knows when to *walk away*",
+          caption: "Setup cancelled",
+          heading: "Knows when to *walk away*",
           text: "If a setup breaks before the order fills, like price pushing back above the M top's peak, it cancels the pending order and explains why."
         },
         {
           image: "images/rosalynn/railway.jpg",
           alt: "Rosalynn shown online on Railway",
-          caption: "online on Railway",
-          heading: "runs *24/7*",
+          caption: "Online on Railway",
+          heading: "Runs *24/7*",
           text: "It lives on Railway, so it stays online around the clock without my laptop being switched on."
         }
       ],
@@ -173,24 +181,24 @@ window.CONTENT = {
       id: "herbal",
       colour: "#FF8A2B",
       name: "Dalgety Herbal Ice",
-      shortName: "herbal ice",
-      listLine: "Branding concept · Sep 2026",
-      kicker: "branding concept · sep 2026",
-      title: "herbal *ice*",
+      shortName: "Herbal Ice",
+      listLine: "Project · Sep 2026",
+      kicker: "Project · Sep 2026",
+      title: "Herbal *Ice*",
       tags: ["Concept", "Can mock-ups", "5 flavours"],
       lede: "A branding concept and can mock-ups imagining a ready-to-drink iced herbal tea for Dalgety, designed as a range of five ginger flavours.",
       cover: {
         image: "images/herbal/range.jpg",
         alt: "Mock-ups of the five Dalgety Herbal Ice can designs side by side",
-        caption: "the full range"
+        caption: "Herbal Ice mock-ups"
       },
       // The 3D can viewer (spin, zoom, tap a flavour)
       viewer: {
-        title: "spin the range",
-        hint: "drag to turn · pinch to zoom · tap a flavour",
+        title: "Spin the mock-ups",
+        hint: "Drag to turn · Pinch to zoom · Tap a flavour",
         note: "3D design mock-ups. Never manufactured.",
-        loading: "chilling the cans…",
-        failed: "the 3D view couldn't load here",
+        loading: "Chilling the cans…",
+        failed: "The 3D view couldn't load here.",
         allLabel: "Full range",
         allName: "The full range",
         spinOn: "Spinning",
@@ -198,7 +206,7 @@ window.CONTENT = {
         showBacks: "Show backs",
         showFronts: "Show fronts"
       },
-      whatIBuiltTitle: "what I built",
+      whatIBuiltTitle: "What I built",
       features: [],
       brief: "Give Dalgety's herbal teas a cold, canned look that would stand out on a shop shelf.",
       outcome: "**A finished branding concept.** Five ginger flavours (lemon, mango, pineapple, passion fruit and sorrel), each with its own colour on a shared design. Built as digital can mock-ups and refined over several rounds of feedback on colour, layout and flavour cues.",
@@ -210,38 +218,38 @@ window.CONTENT = {
       id: "cynthia",
       colour: "#F3B5CD",
       name: "Cynthia's Homemade Teacakes",
-      shortName: "cynthia's",
-      listLine: "Client website · Sep 2026",
-      kicker: "client website · sep 2026",
-      title: "cynthia's *teacakes*",
+      shortName: "Cynthia's Teacakes",
+      listLine: "Project · Sep 2026",
+      kicker: "Project · Sep 2026",
+      title: "Cynthia's *Teacakes*",
       tags: ["Live", "Pre-orders", "Telegram alerts"],
       lede: "A pre-order website for a home bakery selling weekly boxes of cinnamon rolls, cookies and traybakes.",
       cover: {
         image: "images/cynthia/thumb.jpg",
         alt: "The top of the Cynthia's Homemade Teacakes order page",
-        caption: "from the live site"
+        caption: "Cynthia's order page"
       },
-      whatIBuiltTitle: "what I built",
+      whatIBuiltTitle: "What I built",
       features: [
         {
           image: "images/cynthia/order-page.jpg",
           alt: "Customer order page with collection day, boxes left and place order button",
-          caption: "the order page",
-          heading: "easy *ordering*",
+          caption: "The order page",
+          heading: "Easy *ordering*",
           text: "Customers see this week's collection or delivery day, when orders close and how many boxes are left, then pick their boxes. Payment is by bank transfer, with the details on the next page."
         },
         {
           image: "images/cynthia/order-alert.jpg",
           alt: "Telegram order alert listing boxes, delivery fee, total, distance and fuel cost",
-          caption: "a new order",
-          heading: "instant *order alerts*",
+          caption: "A new order",
+          heading: "Instant *order alerts*",
           text: "Every order lands with Cynthia on Telegram with the boxes, delivery fee and total. For deliveries it also works out the distance and the fuel cost of the round trip."
         },
         {
           image: "images/cynthia/bake-sheet.jpg",
           alt: "Weekly bake sheet totalling rolls, cookies and squares by product",
-          caption: "the bake sheet",
-          heading: "a weekly *bake sheet*",
+          caption: "The bake sheet",
+          heading: "A weekly *bake sheet*",
           text: "Behind the scenes she gets a bake sheet for each week, totalling how many rolls, cookies and squares to make, broken down by product and box size, with cancelled orders left out."
         }
       ],
@@ -255,24 +263,24 @@ window.CONTENT = {
       id: "leads",
       colour: "#F4F1EA",
       name: "Lead tracker",
-      shortName: "lead tracker",
-      listLine: "Client project · Oct 2026",
-      kicker: "client project · oct 2026",
-      title: "lead *tracker*",
+      shortName: "Lead tracker",
+      listLine: "Project · Oct 2026",
+      kicker: "Project · Oct 2026",
+      title: "Lead *tracker*",
       tags: ["Complete", "Runs daily", "Telegram alerts"],
-      lede: "A prospecting bot that tracks down leads on Instagram every day: creators in the fitness, AI and trading space with high-ticket courses and programmes that the client could sell for.",
+      lede: "A prospecting bot that tracks down leads on Instagram every day: creators in the fitness, AI and trading space with high-ticket courses and programmes that he could sell for.",
       cover: {
         image: "images/leads/thumb.jpg",
         alt: "A lead alert from the High ticket finder bot, with names blurred",
-        caption: "a real lead, names blurred"
+        caption: "Lead tracker alert"
       },
-      whatIBuiltTitle: "what I built",
+      whatIBuiltTitle: "What I built",
       features: [
         {
           image: "images/leads/alert.jpg",
           alt: "Lead alert showing approach rating, niche, score, followers, location and reason, with names blurred",
-          caption: "a scored lead",
-          heading: "scored *leads*",
+          caption: "A scored lead",
+          heading: "Scored *leads*",
           text: "Every evening it searches Instagram and checks each account with AI. Each lead comes with:",
           bullets: [
             "An approach rating, easy, medium or hard, so he knows who to message first.",
@@ -284,13 +292,13 @@ window.CONTENT = {
         {
           image: "images/leads/summary.jpg",
           alt: "Run summary: 36 checked, 6 leads, split by niche, with the next search time",
-          caption: "the daily round-up",
-          heading: "a daily *round-up*",
+          caption: "The daily round-up",
+          heading: "A daily *round-up*",
           text: "Every search finishes with a summary of how many accounts were checked, how many leads were found in each niche and when the next search runs."
         }
       ],
-      brief: "The client wants to find creators to sell for. He needed a steady list of people with a high-ticket course in fitness, AI or trading, without scrolling Instagram for hours to track them down.",
-      outcome: "**Live and running daily** in the client's Telegram group, so every evening he has fresh leads to reach out to.",
+      brief: "He wanted to find creators to sell for, and needed a steady list of people with a high-ticket course in fitness, AI or trading, without scrolling Instagram for hours to track them down.",
+      outcome: "**Live and running daily** in his Telegram group, so every evening he has fresh leads to reach out to.",
       madeWith: ["Python", "Apify", "AI scoring", "Telegram", "Railway"]
     },
 
@@ -301,18 +309,18 @@ window.CONTENT = {
       id: "classroom",
       colour: "#7AD3B0",
       name: "Year 3 classroom",
-      shortName: "year 3 classroom",
+      shortName: "Year 3 classroom",
       listLine: "Coming soon",
-      kicker: "education · oct 2026",
-      title: "year 3 *classroom*",
+      kicker: "Project · Oct 2026",
+      title: "Year 3 *classroom*",
       tags: ["Coming soon", "Interactive", "For a Year 3 class"],
       lede: "An interactive classroom built from photos of the real room, where each child's seat opens a world of their own. The full write-up lands here once it's finished.",
       cover: {
         image: "images/classroom/thumb.jpg",
         alt: "The Year 3 virtual classroom",
-        caption: "in planning"
+        caption: "In planning"
       },
-      whatIBuiltTitle: "what I built",
+      whatIBuiltTitle: "What I built",
       features: [],
       brief: "",     // leave empty to hide the note until it's ready
       outcome: "",
@@ -322,15 +330,15 @@ window.CONTENT = {
 
   /* ---------- SMALL LABELS USED AROUND THE SITE ---------- */
   labels: {
-    back: "← all builds",
-    nextBuild: "next build:",
-    backToStart: "back to the start:",
-    brief: "the brief",
-    outcome: "the outcome",
-    madeWith: "made with:",
-    pauseSpin: "pause spin",
-    playSpin: "play spin",
-    missingImage: "photo needed",
+    back: "← All builds",
+    nextBuild: "Next build:",
+    backToStart: "Back to the start:",
+    brief: "The brief",
+    outcome: "The outcome",
+    madeWith: "Made with:",
+    pauseSpin: "Pause spin",
+    playSpin: "Play spin",
+    missingImage: "Photo needed",
     openBuild: "Open"
   },
 
