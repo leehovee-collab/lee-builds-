@@ -1,0 +1,11 @@
+# Old 8 MB file: the can artwork now lives in images/herbal/textures
+herbal-data.js
+
+# Original full-size "me" photos (strangers visible). The site uses
+# the cropped, blurred copies me-1.jpg and me-2.jpg instead.
+images/hero/*.jpeg
+
+# Windows / editor clutter
+Thumbs.db
+desktop.ini
+*.tmp
