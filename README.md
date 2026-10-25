@@ -2,6 +2,9 @@
 
 A scrapbook portfolio: a kraft folder with a spinning ring of polaroids. Tap one and that build's page opens out of it.
 
+GitHub repo: <https://github.com/leehovee-collab/lee-builds->
+(The folder on this computer is still called `lees-builds-scrapbook`. That's fine; the names don't need to match.)
+
 ## What's in the folder
 
 | File / folder | What it is | Edit it? |
@@ -51,7 +54,7 @@ Then open <http://localhost:8000> in your browser. Press **Ctrl + C** in PowerSh
 
 ### 1. Create the empty repo on GitHub
 1. Go to <https://github.com/new> and sign in.
-2. **Repository name:** `lees-builds`. Choose Public or Private (both work with Railway).
+2. **Repository name:** `lee-builds-` (already done). Choose Public or Private (both work with Railway).
 3. **Don't** tick "Add a README" or add a .gitignore or licence. The repo must start empty.
 4. Click **Create repository**.
 
@@ -74,7 +77,7 @@ git status
 git commit -m "First version of Lee's Builds"
 
 # tell Git where the GitHub repo lives
-git remote add origin https://github.com/leehovee-collab/lees-builds.git
+git remote add origin https://github.com/leehovee-collab/lee-builds-.git
 
 # upload it (a browser window may pop up asking you to sign in to GitHub)
 git push -u origin main
@@ -82,11 +85,11 @@ git push -u origin main
 
 ### 3. Connect it in Railway
 1. Go to <https://railway.com> → **New Project** → **Deploy from GitHub repo**.
-2. If asked, click **Configure GitHub App** and give Railway access to `lees-builds`.
-3. Pick `lees-builds`. Railway sees `index.html` and builds it as a static site automatically.
+2. If asked, click **Configure GitHub App** and give Railway access to `lee-builds-`.
+3. Pick `lee-builds-`. Railway sees `index.html` and builds it as a static site automatically.
 4. Click the new service → **Variables** → **New Variable**: name `PORT`, value `8080` → Add.
 5. **Settings** → **Networking** → **Generate Domain**. If it asks for a port, type `8080`.
-6. Your live link appears, something like `lees-builds-production.up.railway.app`. Open it on your phone.
+6. Your live link appears, ending in `.up.railway.app`. Open it on your phone.
 
 ### 4. Updating the site later
 
