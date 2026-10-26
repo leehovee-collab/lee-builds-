@@ -55,6 +55,7 @@ window.CONTENT = {
       "These are some of the things I've built so far. If you like what you see, or you're just interested, my contact details are at the bottom."
     ],
     ps: "P.S. Tap the polaroids up top.",
+    contactButton: "Get in touch",   // the gold button under the bubble; it scrolls to the footer
 
     madeWith: ["Python", "Claude", "Railway", "GitHub", "Telegram", "three.js"],
 
@@ -73,18 +74,23 @@ window.CONTENT = {
      They appear in this order everywhere: the spinning ring,
      the list, and the "next build" buttons.
      id      = a short code name used in the web address. Don't change it.
-     colour  = the accent colour for that build's page.               */
+     colour  = the accent colour for that build's page.
+     show    = true or false. false hides the build everywhere (ring,
+               list, "next build" buttons and its link) without deleting it.
+     summary = the one plain-English line under the title.            */
   builds: [
 
     /* ===== 1. JOBWATCH ===== */
     {
       id: "jobwatch",
+      show: true,
       colour: "#F2C94C",
       name: "JobWatch",                       // full name (list, labels)
       shortName: "JobWatch",                   // handwritten caption on the polaroid
       listLine: "Project · Jul 2026",   // small line in the list
       kicker: "Project · Jul 2026",     // small label above the title
       title: "Job*Watch*",
+      summary: "It does the job hunting for you and only messages you about jobs worth applying for.",
       tags: ["Complete", "Telegram alerts", "5 people"],
       lede: "An automated job alert system that finds relevant roles, checks each one against her CV and sends only the strong matches to her phone.",
       cover: {
@@ -117,14 +123,16 @@ window.CONTENT = {
     /* ===== 2. ROSALYNN ===== */
     {
       id: "rosalynn",
+      show: true,
       colour: "#6FA8DC",
       name: "Rosalynn",
       shortName: "Rosalynn",
       listLine: "Project · Jul 2026",
       kicker: "Project · Jul 2026",
       title: "Rosa*lynn*",
-      tags: ["Testing phase", "EURUSD", "Runs 24/7"],
-      lede: "A rules-based trading bot that spots chart patterns, places and manages its own trades in MetaTrader 5, and messages me at every step.",
+      summary: "It watches the currency markets and places trades on its own when it spots a pattern it knows.",
+      tags: ["Testing phase", "Currency markets", "Runs 24/7"],
+      lede: "A trading bot that watches the currency markets for me, places its own trades and messages me at every step.",
       cover: {
         image: "images/rosalynn/thumb.jpg",
         alt: "Rosalynn alerts for a trade going live and a partial profit",
@@ -137,39 +145,39 @@ window.CONTENT = {
           alt: "Rosalynn pattern alert with trend bias, levels, pending order and invalidation rules",
           caption: "Pattern spotted",
           heading: "Spots the *pattern*",
-          text: "Rosalynn scans EURUSD for M tops and W bottoms and checks them against the bigger trend. When one appears it works out the whole trade: the pattern levels, entry, stop loss, a 1:2 take profit, the position size and the rules that would cancel it."
+          text: "It watches the euro to dollar price around the clock for two shapes that often come before the price turns, a double top (an M) and a double bottom (a W). When it finds one, it plans the whole trade for me: where to get in, where to get out if it goes wrong, where to take profit and how much to risk."
         },
         {
           image: "images/rosalynn/partial.jpg",
           alt: "Alerts showing the trade triggered and half the profit taken",
           caption: "Trade goes live",
           heading: "Manages the *trade*",
-          text: "It places the order itself, tells me the moment it goes live, takes half the profit at the first target and moves the stop on the rest to breakeven so the trade can't turn into a loss."
+          text: "It places the trade itself and tells me the moment it's live. Once it's made some profit, it banks half and moves the safety net up to where the trade started, so the rest can't end in a loss."
         },
         {
           image: "images/rosalynn/choppy.jpg",
           alt: "Alerts for a second partial in choppy conditions and a trailing stop move",
           caption: "Trailing the stop",
           heading: "Reads the *market*",
-          text: "After the first partial it keeps watching. If price starts going sideways it measures how choppy things are, takes a second partial, then keeps trailing the stop behind price."
+          text: "If the price starts drifting sideways instead of moving cleanly, it notices, banks a bit more profit, then keeps moving the safety net up behind the price."
         },
         {
           image: "images/rosalynn/cancel.jpg",
           alt: "Alert cancelling a pending order because price broke above the M top peak",
           caption: "Setup cancelled",
           heading: "Knows when to *walk away*",
-          text: "If a setup breaks before the order fills, like price pushing back above the M top's peak, it cancels the pending order and explains why."
+          text: "If the pattern falls apart before the trade starts, it cancels it and tells me why."
         },
         {
           image: "images/rosalynn/railway.jpg",
           alt: "Rosalynn shown online on Railway",
           caption: "Online on Railway",
           heading: "Runs *24/7*",
-          text: "It lives on Railway, so it stays online around the clock without my laptop being switched on."
+          text: "It lives online on Railway, so it keeps working around the clock without my laptop being switched on."
         }
       ],
-      brief: "Trade a tested pattern strategy consistently, without watching charts all day or making emotional calls.",
-      outcome: "**In the testing phase.** It runs on a demo account while I fine-tune the rules, with every trade logged to Google Sheets.",
+      brief: "Follow a tested trading strategy consistently, without staring at charts all day or making decisions on emotion.",
+      outcome: "**In the testing phase.** It's trading on a practice account while I fine-tune it, and every trade is logged in a spreadsheet.",
       madeWith: ["Python", "MetaApi", "MetaTrader 5", "Google Sheets", "Telegram", "Railway"]
     },
 
@@ -179,12 +187,14 @@ window.CONTENT = {
        "launched", "available" or "buy".                            */
     {
       id: "herbal",
+      show: true,
       colour: "#FF8A2B",
       name: "Dalgety Herbal Ice",
       shortName: "Herbal Ice",
       listLine: "Project · Sep 2026",
       kicker: "Project · Sep 2026",
       title: "Herbal *Ice*",
+      summary: "A design idea for what Dalgety's herbal teas could look like as a cold canned drink.",
       tags: ["Concept", "Can mock-ups", "5 flavours"],
       lede: "A branding concept and can mock-ups imagining a ready-to-drink iced herbal tea for Dalgety, designed as a range of five ginger flavours.",
       cover: {
@@ -216,12 +226,14 @@ window.CONTENT = {
     /* ===== 4. CYNTHIA'S HOMEMADE TEACAKES ===== */
     {
       id: "cynthia",
+      show: true,
       colour: "#F3B5CD",
       name: "Cynthia's Homemade Teacakes",
       shortName: "Cynthia's Teacakes",
       listLine: "Project · Sep 2026",
       kicker: "Project · Sep 2026",
       title: "Cynthia's *Teacakes*",
+      summary: "A simple website where people order and pay for Cynthia's weekly bakes.",
       tags: ["Live", "Pre-orders", "Telegram alerts"],
       lede: "A pre-order website for a home bakery selling weekly boxes of cinnamon rolls, cookies and traybakes.",
       cover: {
@@ -261,12 +273,14 @@ window.CONTENT = {
     /* ===== 5. LEAD TRACKER ===== */
     {
       id: "leads",
+      show: true,
       colour: "#F4F1EA",
       name: "Lead tracker",
       shortName: "Lead tracker",
       listLine: "Project · Oct 2026",
       kicker: "Project · Oct 2026",
       title: "Lead *tracker*",
+      summary: "It finds people on Instagram selling high-ticket courses, so he knows who to get in touch with.",
       tags: ["Complete", "Runs daily", "Telegram alerts"],
       lede: "A prospecting bot that tracks down leads on Instagram every day: creators in the fitness, AI and trading space with high-ticket courses and programmes that he could sell for.",
       cover: {
@@ -307,12 +321,14 @@ window.CONTENT = {
        on the polaroid and the build page automatically.            */
     {
       id: "classroom",
+      show: false,     // switch to true when the classroom is built
       colour: "#7AD3B0",
       name: "Year 3 classroom",
       shortName: "Year 3 classroom",
       listLine: "Coming soon",
       kicker: "Project · Oct 2026",
       title: "Year 3 *classroom*",
+      summary: "",
       tags: ["Coming soon", "Interactive", "For a Year 3 class"],
       lede: "An interactive classroom built from photos of the real room, where each child's seat opens a world of their own. The full write-up lands here once it's finished.",
       cover: {

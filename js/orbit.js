@@ -8,7 +8,7 @@
   'use strict';
   var C=window.CONTENT;
   var L=C.labels;
-  var BUILDS=C.builds;
+  var BUILDS=C.builds.filter(function(b){return b.show!==false});   // show:false hides a build everywhere
   var byId={};BUILDS.forEach(function(b){byId[b.id]=b});
   var reduce=matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -75,6 +75,15 @@
   $('about-hi').innerHTML=rich(A.heading);
   $('about-text').innerHTML=A.paragraphs.map(function(p){return '<p>'+rich(p)+'</p>'}).join('');
   $('about-ps').textContent=A.ps;
+  var cta=$('about-cta');
+  if(A.contactButton&&(S.email||S.phone)){
+    cta.textContent=A.contactButton;
+    cta.addEventListener('click',function(e){
+      e.preventDefault();
+      $('footer').scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'end'});
+      $('footer').focus({preventScroll:true});
+    });
+  }else cta.hidden=true;
   $('about-made').innerHTML=madeWith(A.madeWith);
   $('cur-title').textContent=A.currentlyTitle;
   $('cur-list').innerHTML=A.currently.map(function(t){return '<li>'+esc(t)+'</li>'}).join('');
@@ -108,6 +117,7 @@
     var h='<section class="d-top" style="--a:'+esc(b.colour)+'"><div class="wrap grid"><div>'
       +'<p class="kicker label">'+esc(b.kicker)+'</p>'
       +'<h2 class="h-serif fit" id="d-title">'+rich(b.title)+'</h2>'
+      +(b.summary?'<p class="summary">'+rich(b.summary)+'</p>':'')
       +'<ul class="stick" aria-label="Tags">'+b.tags.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ul>'
       +'<p class="lede">'+rich(b.lede)+'</p></div>'
       +'<figure class="bigpol"><span class="tape'+(i%2?' dots':'')+'"></span><span class="clip" aria-hidden="true"></span>'
