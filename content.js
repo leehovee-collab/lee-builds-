@@ -198,7 +198,7 @@ window.CONTENT = {
       tags: ["Concept", "Can mock-ups", "5 flavours"],
       lede: "A branding concept and can mock-ups imagining a ready-to-drink iced herbal tea for Dalgety, designed as a range of five ginger flavours.",
       cover: {
-        image: "images/herbal/range.jpg",
+        image: "images/herbal/range.jpg?v=2",
         alt: "Mock-ups of the five Dalgety Herbal Ice can designs side by side",
         caption: "Herbal Ice mock-ups"
       },

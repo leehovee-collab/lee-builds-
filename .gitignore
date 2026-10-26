@@ -9,3 +9,6 @@ images/hero/*.jpeg
 Thumbs.db
 desktop.ini
 *.tmp
+
+# the original full-size can artwork (compressed copies live in images/herbal/textures)
+images/herbal/*-ginger.jpg

@@ -9,11 +9,11 @@
   var TEX='images/herbal/textures/';
   var SMALL=Math.min(screen.width,screen.height)<768;
   var CANS=[
-    {name:'Mango Ginger',tex:'mango-ginger',rim:[0xF0A418,0xD9480F]},
+    {name:'Mango Ginger',tex:'mango-ginger',rim:[0xFF6A00,0xF3F1EE]},          // rim: [lid, base]
     {name:'Sorrel Ginger',tex:'sorrel-ginger',rim:[0xC8141E,0xF3F1EE]},
-    {name:'Lemon and Ginger',tex:'lemon-ginger',rim:[0xF2D12E,0xEFEBDD]},
+    {name:'Lemon and Ginger',tex:'lemon-ginger',rim:[0xEFEBDD,0xF2D12E]},
     {name:'Pineapple Ginger',tex:'pineapple-ginger',rim:[0xF4C23A,0xC9780A]},
-    {name:'Passion Fruit Ginger',tex:'passion-fruit-ginger',rim:[0x7A2E82,0xE8962A]}
+    {name:'Passion Fruit Ginger',tex:'passion-fruit-ginger',rim:[0xE8962A,0x7A2E82]}
   ];
   var reduce=matchMedia('(prefers-reduced-motion: reduce)');
   var loading=null;
@@ -54,8 +54,6 @@
     scene.add(new THREE.HemisphereLight(0xffffff,0x9a9a9a,0.85));
 
     var loader=new THREE.TextureLoader();
-    var nm=loader.load(TEX+'can-normal.jpg'),rm=loader.load(TEX+'can-roughness.jpg');
-    [nm,rm].forEach(function(t){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(2,2)});
 
     // can shape
     var R=1,BH=3.575,h2=BH/2,VB=0.023328,VT=0.930016;
@@ -72,9 +70,9 @@
     var X=[-4.6,-2.3,0,2.3,4.6],cans=[],spinning=true,back=false;
     CANS.forEach(function(cd,i){
       var g=new THREE.Group();g.position.set(X[i],0,-Math.abs(X[i])*0.35);g.rotation.y=i*0.6;scene.add(g);
-      var t=loader.load(TEX+cd.tex+(SMALL?'-sm':'')+'.jpg',function(){if(host)draw()});
+      var t=loader.load(TEX+cd.tex+(SMALL?'-sm':'')+'.jpg?v=2',function(){if(host)draw()});
       t.encoding=THREE.sRGBEncoding;t.anisotropy=Math.min(8,ren.capabilities.getMaxAnisotropy());
-      var mat=new THREE.MeshStandardMaterial({map:t,metalness:0,roughness:1,envMapIntensity:0.5,normalMap:nm,normalScale:new THREE.Vector2(0.7,0.7),roughnessMap:rm});
+      var mat=new THREE.MeshStandardMaterial({map:t,metalness:0,roughness:0.85,envMapIntensity:0.5});
       var mat2=mat.clone();mat2.side=THREE.DoubleSide;
       var top=new THREE.MeshStandardMaterial({color:cd.rim[0],metalness:0.1,roughness:0.75,side:THREE.DoubleSide});
       var foot=new THREE.MeshStandardMaterial({color:cd.rim[1],metalness:0.1,roughness:0.75,side:THREE.DoubleSide});
