@@ -17,6 +17,14 @@
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
   // **bold** and *italic accent* from content.js
   function rich(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>')}
+  // Shrink a one-line heading until it fits its box (never below 28px)
+  function fit(root){
+    [].forEach.call((root||document).querySelectorAll('.fit'),function(el){
+      el.style.fontSize='';
+      var w=el.clientWidth,need=el.scrollWidth;
+      if(w&&need>w)el.style.fontSize=Math.max(28,Math.floor(parseFloat(getComputedStyle(el).fontSize)*w/need*0.97))+'px';
+    });
+  }
   function plain(s){return String(s||'').replace(/\*/g,'')}
 
   // A picture that swaps itself for a tidy placeholder if the file is missing
@@ -99,7 +107,7 @@
     var i=BUILDS.indexOf(b),next=BUILDS[(i+1)%BUILDS.length],wrap=i===BUILDS.length-1;
     var h='<section class="d-top" style="--a:'+esc(b.colour)+'"><div class="wrap grid"><div>'
       +'<p class="kicker label">'+esc(b.kicker)+'</p>'
-      +'<h2 class="h-serif" id="d-title">'+rich(b.title)+'</h2>'
+      +'<h2 class="h-serif fit" id="d-title">'+rich(b.title)+'</h2>'
       +'<ul class="stick" aria-label="Tags">'+b.tags.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ul>'
       +'<p class="lede">'+rich(b.lede)+'</p></div>'
       +'<figure class="bigpol"><span class="tape'+(i%2?' dots':'')+'"></span><span class="clip" aria-hidden="true"></span>'
@@ -109,7 +117,7 @@
     if(b.viewer){
       var v=b.viewer;
       h+='<section class="d-3d" aria-labelledby="v-title"><div class="wrap">'
-        +'<h3 class="h-serif" id="v-title">'+rich(v.title)+'</h3>'
+        +'<h3 class="h-serif fit" id="v-title">'+rich(v.title)+'</h3>'
         +'<p class="sub label">'+esc(v.hint)+'</p>'
         +'<p class="mock">'+esc(v.note)+'</p>'
         +'<div class="stage3d" id="stage3d"><div class="msg" id="msg3d">'+esc(v.loading)+'</div></div>'
@@ -121,7 +129,7 @@
     }
 
     if(b.features&&b.features.length){
-      h+='<section class="d-feat"><div class="wrap"><h3 class="h-serif">'+rich(b.whatIBuiltTitle)+'</h3>'
+      h+='<section class="d-feat"><div class="wrap"><h3 class="h-serif fit">'+rich(b.whatIBuiltTitle)+'</h3>'
         +b.features.map(function(f,k){
           return '<div class="frow"><figure class="fpol"><span class="tape'+(k%2?'':' dots')+'"></span>'
             +'<div class="pic">'+pic(f.image,f.alt)+'</div><figcaption>'+esc(f.caption)+'</figcaption></figure>'
@@ -256,6 +264,7 @@
     var b=byId[id];
     dbody.innerHTML=buildPage(b);
     dname.textContent=b.shortName;current=id;detail.scrollTop=0;
+    if(!detail.hidden)fit(dbody);
     if(b.viewer&&window.HerbalViewer)window.HerbalViewer.mount(b.viewer);
   }
   function openBuild(id,fromEl,how){
@@ -264,7 +273,7 @@
     fill(id);
     document.documentElement.style.overflow='hidden';
     page.inert=true;page.setAttribute('aria-hidden','true');
-    detail.hidden=false;
+    detail.hidden=false;fit(dbody);
     if(!reduce.matches&&fromEl&&fromEl.getBoundingClientRect().width){
       detail.classList.remove('anim');
       detail.style.clipPath=rectInset(fromEl.getBoundingClientRect());
@@ -336,6 +345,11 @@
       else if(id!==current)fill(id);
     }else{pushed=false;closeUI()}
   });
+  var fitT;
+  addEventListener('resize',function(){clearTimeout(fitT);fitT=setTimeout(function(){fit(document)},120)});
+  if(document.fonts)document.fonts.ready.then(function(){fit(document)});
+  fit(document);
+
   // a shared link like  …/#rosalynn  opens straight onto that build
   (function(){
     var id=location.hash.slice(1);
