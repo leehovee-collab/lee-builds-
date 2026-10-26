@@ -100,4 +100,6 @@ git commit -m "Describe what you changed"
 git push
 ```
 
-Railway notices the push and redeploys by itself in a minute or two.
+Railway notices the push and redeploys by itself, usually within about 10 minutes.
+
+**So visitors see the change straight away:** open `index.html` in Notepad and raise the number in every `?v=2` (near the top and the bottom) by one, e.g. to `?v=3`, before you push. Otherwise browsers may keep showing the copy they saved last time.
